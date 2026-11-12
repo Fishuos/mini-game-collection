@@ -24,11 +24,22 @@ namespace MiniGameCollection.Games2025.Team00
         void Update()
         {
             float axisX = ArcadeInput.Players[(int)PlayerID].AxisX;
-            if (PlayerID == PlayerID.Player1)
-                axisX = -axisX;
-            float movement = axisX * Time.deltaTime * ShipSpeed;
-            Vector3 newPosition = transform.position + new Vector3(0, movement, 0);
-            newPosition.y = Mathf.Clamp(newPosition.y, -MinMaxY, MinMaxY);
+            float axisY = ArcadeInput.Players[(int)PlayerID].AxisY;
+
+
+            Vector2 movement = new Vector2(axisX, axisY);
+
+            if (movement.magnitude > 0.1f)
+            {
+                float angle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f; //https://docs.unity3d.com/2020.2/Documentation/ScriptReference/Mathf.Atan2.html 
+
+                Rigidbody2D.rotation = angle;
+            }
+
+            movement = movement.normalized;
+
+            Vector2 newPosition = Rigidbody2D.position + movement * ShipSpeed * Time.deltaTime;
+
             Rigidbody2D.MovePosition(newPosition);
 
             if (!CanShoot)

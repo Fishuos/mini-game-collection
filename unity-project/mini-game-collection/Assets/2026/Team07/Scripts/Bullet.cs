@@ -50,7 +50,6 @@ namespace MiniGameCollection.Games2025.Team00
         private void OnTriggerEnter2D(Collider2D collider2d)
         {
             var enemy = collider2d.GetComponent<Enemy>();
-            var player = collider2d.GetComponent<PlayerController>();
 
             switch (Owner)
             {
@@ -61,29 +60,14 @@ namespace MiniGameCollection.Games2025.Team00
                         // Add to bullet owner's score
                         PlayerID bulletOwnerPlayerID = OwnerToPlayerID(Owner);
                         ScoreKeeper.AddScore(bulletOwnerPlayerID, enemy.PointsAwarded);
-                        // Destroy enemy and this bullet
+
+                        // Destroy enemy and bullet
                         enemy.DestroyEnemy();
                         DestroyBullet();
                     }
-                    else if (player != null)
-                    {
-                        // Check if hit another player
-                        PlayerID bulletOwnerPlayerID = OwnerToPlayerID(Owner);
-                        if (bulletOwnerPlayerID != player.PlayerID)
-                        {
-                            // Reduce other player's score
-                            ScoreKeeper.AddScore(player.PlayerID, this.PointPenalty);
-                            // Destroy this bullet
-                            DestroyBullet();
-                        }
-                    }
                     break;
+
                 case BulletOwner.Enemy:
-                    if (player != null)
-                    {
-                        // Reduce player's score
-                        ScoreKeeper.AddScore(player.PlayerID, this.PointPenalty);
-                    }
                     break;
             }
         }

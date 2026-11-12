@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGameCollection.Games2025.Team00
+namespace MiniGameCollection.Games2026.Team07
 {
     public class Bullet : MiniGameBehaviour
     {
@@ -58,8 +58,7 @@ namespace MiniGameCollection.Games2025.Team00
                     if (enemy != null)
                     {
                         // Add to bullet owner's score
-                        PlayerID bulletOwnerPlayerID = OwnerToPlayerID(Owner);
-                        ScoreKeeper.AddScore(bulletOwnerPlayerID, enemy.PointsAwarded);
+                        
 
                         // Destroy enemy and bullet
                         enemy.DestroyEnemy();

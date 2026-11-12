@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MiniGameCollection.Games2025.Team00
+namespace MiniGameCollection.Games2026.Team07
 {
     public class ScoreKeeper : MiniGameBehaviour
     {

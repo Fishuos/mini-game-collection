@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.13, y: 0.57}
+  m_Size: {x: 0.13, y: 0.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57bfb43e2cf589446abc5949ebb6fd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <MiniGameManager>k__BackingField: {fileID: 0}
   <Owner>k__BackingField: 1
   <Rigidbody2D>k__BackingField: {fileID: 8106316889897857581}
   <SelfDestructTime>k__BackingField: 10
